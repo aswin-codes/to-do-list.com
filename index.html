@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>To-Do-List</title>
+		<script>
+			function addElement(){
+				if (document.getElementById("box").value==("Type to add tasks")){
+					alert("Add something");
+				}
+				else if(!/\S/.test(document.getElementById("box").value)){
+					alert("Add something");
+				}
+				else{
+					var majorDiv=document.createElement("div");
+					majorDiv.style.width="602px";
+					majorDiv.style.height="fit-content";
+					var removeButton=document.createElement("input");
+					removeButton.type="button";
+					removeButton.value="REMOVE";
+					removeButton.style.backgroundColor="red";
+					removeButton.style.fontSize="20px";
+					removeButton.style.width="126px";
+					removeButton.style.float="right";
+					removeButton.style.marginRight="14px";
+					removeButton.onclick =removeItem;
+					majorDiv.appendChild(removeButton);
+					var taskElement=document.createElement("div");
+					taskElement.style.backgroundColor="white";
+					taskElement.style.width="429px";
+					taskElement.style.height="fit-content";
+					taskElement.style.fontSize="28px";
+					taskElement.style.wordWrap="break-word";
+					taskElement.style.marginLeft="20px";
+					taskElement.style.marginTop="5px";
+					taskElement.style.marginBottom="5px";
+					taskElement.innerHTML=document.getElementById("box").value;
+					majorDiv.appendChild(taskElement);
+					document.getElementById("list").appendChild(majorDiv);
+					
+					function removeItem(){
+						document.getElementById("list").removeChild(majorDiv);
+				        	
+				    }				
+				}
+			}			
+		</script>
+	</head>
+	<body style="background-color: beige;">
+		<div style="background: lightblue;width: 604px; height: fit-content;margin-top: 119px;margin-left: 383px;ma" id="list">
+			<div style="font-size: 78px; text-align: center;width: 582px;">TO-DO-LIST</div>
+			<input type="text" style="width: 574px;height: 54px; margin-left: 12px; margin-top: 18px; color: grey; font-size: 30px;" value="Type to add tasks" id="box" onclick=" style='width: 574px;height: 54px; margin-left: 12px; margin-top: 18px; color: black; font-size: 30px;',value='';"/>
+			<div style="width: 602px; height: 66px;" id="box">
+				<input type="button" style="background-color: green; width: 157px;height: 35px;margin-left: 21px;margin-top: 21px;text-align: center; font-size: 23px;" value="ADD" onclick="addElement();"/>
+			</div>
+		</div>
+		
+	</body>
+</html>
