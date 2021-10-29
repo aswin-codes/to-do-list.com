@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>To-Do-List</title>
+        <meta name="viewport" content="width=devicewidth,height=device-height,initial-scale=1.0/">
+        <link rel="stylesheet" href="Styles.css">
+        <script>
+			function addElement(){
+				if (document.getElementById("box").value==("Type to add tasks")){
+					alert("Add something");
+				}
+				else if(!/\S/.test(document.getElementById("box").value)){
+					alert("Add something");
+				}
+				else{
+					var majorDiv=document.createElement("div");
+					majorDiv.style.width="100%";
+					majorDiv.style.height="fit-content";
+					var removeButton=document.createElement("input");
+					removeButton.type="button";
+					removeButton.value="REMOVE";
+					removeButton.style.backgroundColor="red";
+					removeButton.style.fontSize="100%";
+					removeButton.style.width="18%";
+                    removeButton.style.height="100%";
+					removeButton.style.float="right";
+					
+					removeButton.onclick =removeItem;
+					majorDiv.appendChild(removeButton);
+					var taskElement=document.createElement("div");
+					taskElement.style.backgroundColor="white";
+					taskElement.style.width="80%";
+					taskElement.style.height="fit-content";
+					taskElement.style.fontSize="150%";
+					taskElement.style.wordWrap="break-word";
+					
+					taskElement.style.marginTop="10px";
+					taskElement.style.marginBottom="5px";
+					taskElement.innerHTML=document.getElementById("box").value;
+					majorDiv.appendChild(taskElement);
+					document.getElementById("list").appendChild(majorDiv);
+					
+					function removeItem(){
+						document.getElementById("list").removeChild(majorDiv);
+				        	
+				    }				
+				}
+			}			
+		</script>
+    </head>
+    <body>
+        <div class="majorDias" id="list">
+            <div style="font-size: 500%; text-align: center;height: 400%;">TO-DO-LIST</div>
+            <input type="text" style="border-radius: 0 0 0 10px;width: 80%;height: 500%; color: grey; font-size: 150%;" value="Type to add tasks" id="box" onclick=" style='width: 80%;height: 100%;color: black; font-size: 150%;border-radius: 0 0 0 10px;',value='';">
+            <input type="button" style="background-color: green;  width: 17%;text-align: center; font-size:150%;border-radius: 0 0 10px 0;" value="ADD" onclick="addElement();">
+        </div>
+    </body>
+    
+</html>
