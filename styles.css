@@ -1,0 +1,36 @@
+:root{
+    --gradient: linear-gradient(
+    45deg,
+    #845ec2,
+    #d65db1,
+    #ff6f91,#ff9671,
+    #ffc75f,
+    #f9f871
+    );
+}
+body{
+    
+    height: 100vh;
+    background: #ddd;
+    background-image: var(--gradient);
+    background-size: 400%;
+    animation: bg-animation 8s infinite alternate;
+}
+@keyframes bg-animation{
+    0%{
+        background-position: left;
+    }
+    100%{
+        background-position: right;
+    }
+}
+.majorDias{
+    width: 70%;
+    height:fit-content;    
+    margin-top: 20%;
+    margin-left:20%;
+    background: rebeccapurple;
+    border-radius: 10px;
+    padding-bottom: 5px;
+
+}
